@@ -49,7 +49,7 @@ const Button = ({
     : (props: React.HTMLAttributes<HTMLButtonElement>) =>
         React.createElement('button', props)
 
-  const activeClasses = 'bg-primary text-white'
+  const activeClasses = 'bg-white text-layer'
   const disabledClasses = 'bg-gray-700 text-gray-400'
 
   return (
@@ -58,7 +58,7 @@ const Button = ({
       className={clsx(
         className,
         active ? activeClasses : disabledClasses,
-        'flex items-center justify-center rounded-sm px-8 py-3 font-bold'
+        'flex items-center justify-center rounded-[16px] px-[22px] py-[10px] text-[16px] font-bold leading-[56px]'
       )}
       target={target}
       onClick={handleClick}

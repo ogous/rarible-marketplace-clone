@@ -1,10 +1,12 @@
-const Loader = () => {
+import clsx from 'clsx'
+
+const Loader = ({ className = 'text-white' }: { className?: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      className={'z-[1] -ml-1 mr-3 h-5 w-5 animate-spin text-white'}
+      className={clsx('z-[1] -ml-1 mr-3 h-5 w-5 animate-spin', className)}
     >
       <circle
         className="opacity-25"

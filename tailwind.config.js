@@ -12,11 +12,8 @@ module.exports = {
         inter: ['var(--font-inter)', ...fontFamily.sans]
       },
       colors: {
-        layer: '#161714',
-        primary: '#266fc0',
-        secondary: '#af5dc3',
-        tertiary: '#57bd50',
-        text: '#cccccc'
+        layer: '#1a1c1f',
+        primary: '#feda03'
       }
     }
   },

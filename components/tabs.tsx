@@ -1,6 +1,6 @@
 import { Tab } from '@headlessui/react'
-import NoteInput from './noteInput'
-import FileInput from './fileInput'
+import NoteInput from './ER721Form'
+import FileInput from './ER1155Form'
 
 export default function Tabs() {
   const tabClasses =

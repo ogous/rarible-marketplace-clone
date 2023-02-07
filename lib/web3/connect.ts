@@ -14,7 +14,7 @@ const { chains, provider } = configureChains(chosenChains, [
 ])
 
 const { connectors } = getDefaultWallets({
-  appName: 'IPFS Notes Test',
+  appName: 'Rarible Marketplace',
   chains
 })
 

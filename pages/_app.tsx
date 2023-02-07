@@ -16,7 +16,13 @@ export default function App({ Component, pageProps }: AppProps) {
           <RainbowKitProvider
             modalSize="compact"
             chains={chains}
-            theme={darkTheme()}
+            theme={darkTheme({
+              accentColor: '#feda03',
+              accentColorForeground: 'black',
+              borderRadius: 'medium',
+              fontStack: 'system',
+              overlayBlur: 'small'
+            })}
           >
             <Layout>
               <Component {...pageProps} />
