@@ -58,7 +58,7 @@ const Button = ({
       className={clsx(
         className,
         active ? activeClasses : disabledClasses,
-        'flex items-center justify-center rounded-[16px] px-[22px] py-[10px] text-[16px] font-bold leading-[56px]'
+        'flex items-center justify-center rounded-[16px] px-[22px] py-[10px] text-[16px] font-bold leading-[36px]'
       )}
       target={target}
       onClick={handleClick}

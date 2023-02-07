@@ -15,7 +15,7 @@ export default function Layout({ children }: { children: JSX.Element }) {
     <div
       className={clsx(
         inter.variable,
-        'flex min-h-screen flex-col bg-layer text-text'
+        'flex min-h-screen flex-col bg-layer text-white'
       )}
     >
       <Toaster
