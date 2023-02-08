@@ -17,7 +17,6 @@ import {
 } from 'wagmi'
 
 import { toast } from 'react-hot-toast'
-import { useEffect } from 'react'
 export default function ER721Form() {
   const validationSchema = z.object({
     file: z
@@ -44,13 +43,13 @@ export default function ER721Form() {
   const { data: signer } = useSigner()
   const provider = useProvider()
 
-  const contract = useContract({
+  useContract({
     address: contractAddress || '',
     abi: contractAbi,
     signerOrProvider: signer || provider
   })
 
-  const { data, write } = useContractWrite({
+  const { write } = useContractWrite({
     address: contractAddress,
     abi: contractAbi,
     functionName: 'mintToken',
