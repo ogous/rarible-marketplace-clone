@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "smartContracts"
+    }
+  ],
+  "settings": {
+    "files.associations": {
+      "*.css": "tailwindcss"
+    },
+    "prettier.configPath": ".prettierrc.js",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "solidity.defaultCompiler": "localNodeModule",
+    "solidity.packageDefaultDependenciesDirectory": "node_modules",
+    "solidity.remappingsUnix": [
+      "@openzeppelin/=smartContracts/node_modules/@openzeppelin/"
+    ]
+  }
+}
