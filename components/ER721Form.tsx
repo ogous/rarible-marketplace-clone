@@ -3,7 +3,21 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import Button from './button'
 import clsx from 'clsx'
+import contractAbi from 'KANJINFT.json'
 
+import {
+  // Address,
+  // useAccount,
+  useContract,
+  useContractWrite,
+  // useNetwork,
+  useProvider,
+  useSigner
+  // useWaitForTransaction
+} from 'wagmi'
+
+import { toast } from 'react-hot-toast'
+import { useEffect } from 'react'
 export default function ER721Form() {
   const validationSchema = z.object({
     file: z
@@ -26,8 +40,31 @@ export default function ER721Form() {
     resolver: zodResolver(validationSchema)
   })
 
-  const onSubmit: SubmitHandler<ValidationSchema> = (data) =>
-    window.alert(data.file)
+  const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS
+  const { data: signer } = useSigner()
+  const provider = useProvider()
+
+  const contract = useContract({
+    address: contractAddress || '',
+    abi: contractAbi,
+    signerOrProvider: signer || provider
+  })
+
+  const { data, write } = useContractWrite({
+    address: contractAddress,
+    abi: contractAbi,
+    functionName: 'mintToken',
+    mode: 'recklesslyUnprepared',
+    args: [],
+    onSuccess() {
+      toast.success('NFT Minted Successfully')
+    },
+    onError(error) {
+      toast.error('Error: ' + error.message)
+    }
+  })
+
+  const onSubmit: SubmitHandler<ValidationSchema> = () => write()
 
   const inputClassNames =
     'focus:shadow-outline mb-4 w-full appearance-none rounded-[16px] min-h-[48px] bg-white bg-opacity-[0.04] px-[14px] font-[14px] py-2 text-sm leading-tight text-gray-200 focus:outline-none placeholder:font-bold placeholder:text-gray-500'
@@ -51,11 +88,11 @@ export default function ER721Form() {
                 y2="100%"
                 id="751976694578"
               >
-                <stop stop-color="rgb(255, 0, 115)" offset="0%" />
-                <stop stop-color="rgb(115, 255, 0)" offset="100%" />
+                <stop stopColor="rgb(255, 0, 115)" offset="0%" />
+                <stop stopColor="rgb(115, 255, 0)" offset="100%" />
               </linearGradient>
             </defs>
-            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <rect
                 id="Rectangle"
                 fill="url(#751976694578)"

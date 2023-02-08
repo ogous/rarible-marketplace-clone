@@ -7,6 +7,7 @@ export declare global {
       ALCHEMY_KEY: string
       NEXTAUTH_SECRET: string
       NEXTAUTH_URL: string
+      NEXT_PUBLIC_CONTRACT_ADDRESS: `0x${string}`
     }
   }
 }

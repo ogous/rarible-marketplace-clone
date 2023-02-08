@@ -8,7 +8,6 @@ import { useState } from 'react'
 import Modal from 'components/modal'
 import SingleTypeButtonImage from 'public/single.png'
 import MultiTypeButtonImage from 'public/multi.png'
-import ER1155Form from '../components/ER1155Form'
 import ER721Form from '../components/ER721Form'
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
   const [isAlertModalOpen, setIsAlertModalOpen] = useState<boolean>(false)
   const [isTypeModalOpen, setIsTypeModalOpen] = useState<boolean>(false)
   const [isER721Open, setIsER721Open] = useState<boolean>(false)
-  const [isER1155Open, setIsER1155Open] = useState<boolean>(false)
 
   const typeModalButtons = [
     {
@@ -34,7 +32,7 @@ export default function Home() {
       title: 'Multiple',
       desc: 'If you want to highlight the uniqueness and individuality of your item',
       onClick: () => {
-        setIsER1155Open(true)
+        setIsER721Open(true)
         setIsTypeModalOpen(false)
       }
     }
@@ -44,7 +42,6 @@ export default function Home() {
     setIsAlertModalOpen(false)
     setIsTypeModalOpen(false)
     setIsER721Open(false)
-    setIsER1155Open(false)
   }
 
   function handleAction() {
@@ -134,14 +131,6 @@ export default function Home() {
             </button>
           ))}
         </div>
-      </Modal>
-      <Modal
-        isOpen={isER1155Open}
-        setIsOpen={setIsER1155Open}
-        title="Collection ERC-1155"
-        dismiss={dismiss}
-      >
-        <ER1155Form />
       </Modal>
       <Modal
         isOpen={isER721Open}
